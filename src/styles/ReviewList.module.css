@@ -1,0 +1,188 @@
+.main {
+    width: 100%;
+}
+
+.p {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.reviewDiv {
+    position: relative;
+}
+
+.textarea textarea {
+    margin-top: 10px;
+    width: 98%;
+    height: 90px;
+    font-size: 1rem;
+}
+
+.submit {
+    background-color: rgb(22, 152, 22);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 5px 5px 5px 0;
+    box-shadow: 2px 2px 6px black;
+    transition-duration: 0.4s;
+}
+
+.cancel {
+    background-color: rgb(109, 115, 109);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 5px 5px 0 5px;
+    box-shadow: 2px 2px 6px black;
+    transition-duration: 0.4s;
+}
+
+.leaveReview {
+    background-color: rgb(59, 73, 203);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 30px 0 10px 0;
+    box-shadow: 3px 3px 8px black;
+    transition-duration: 0.4s;
+}
+
+.submit:hover {
+    background-color: rgb(18, 130, 18);
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: rgb(89, 91, 89);
+    cursor: pointer;
+}
+
+.leaveReview:hover {
+    background-color: rgb(39, 50, 152);
+    cursor: pointer;
+}
+
+.rating {
+    display: flex;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.rating input {
+    width: 15vw;
+    margin: 0 10px 0 10px;
+    padding: 0;
+    font-size: 1rem;
+}
+
+/* .formEnter {
+    width: 35.5vw;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.formEnterActive {
+    margin-top: 10px;
+    width: 35.5vw;
+    background-color: transparent;
+    color: transparent;
+    transition: all 600ms;
+}
+
+.formExit {
+    margin-top: 10px;
+    width: 35.5vw;
+    color: transparent;
+}
+
+.formExitActive {
+    width: 35.5vw;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: all 600ms;
+} */
+
+/* .formEnter {
+    width: 98%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.formEnterActive {
+    margin-top: 10px;
+    width: 98%;
+    background-color: transparent;
+    color: transparent;
+    transition: all 600ms;
+}
+
+.formExit {
+    margin-top: 10px;
+    width: 98%;
+    color: transparent;
+}
+
+.formExitActive {
+    width: 98%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: all 600ms;
+} */
+
+.formEnter {
+    opacity: 0;
+}
+
+.formEnterActive {
+    opacity: 1;
+    margin-top: 10px;
+    width: 98%;
+    background-color: transparent;
+    color: transparent;
+    transition: all 600ms;
+}
+
+.formExit {
+    opacity: 1;
+    margin-top: 10px;
+    width: 98%;
+    color: transparent;
+}
+
+.formExitActive {
+    opacity: 0;
+    width: 98%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: all 600ms;
+}
+
+@media (max-width:600px) {
+
+    .rating input {
+        width: 40vw;
+    }
+}
+
+@media (min-width:600px) and (max-width:768px) {
+    .rating input {
+        width: 40vw;
+    }
+}

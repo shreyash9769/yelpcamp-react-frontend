@@ -1,0 +1,44 @@
+.sidedrawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 70%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 70%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  transition: all 600ms;
+}
+
+.exit {
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 70%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.exitActive {
+  opacity: 0;
+  transition: all 600ms;
+}

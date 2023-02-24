@@ -1,0 +1,25 @@
+.main {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main h1 {
+    width: 88%;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black
+}
+
+@media(max-width:600px) {
+    .main h1 {
+        width: 86%;
+    }
+}
+
+@media (min-width:600px) and (max-width:768px) {
+    .main h1 {
+        width: 86.5%;
+    }
+}

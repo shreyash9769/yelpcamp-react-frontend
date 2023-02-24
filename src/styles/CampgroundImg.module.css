@@ -1,0 +1,28 @@
+.img {
+    margin: 0;
+    padding: 0;
+    width: 26vw;
+    height: 19.5vw;
+    object-fit: cover;
+}
+
+@media (max-width:600px) {
+    .img {
+        width: 87.5vw;
+        height: 50vw;
+    }
+}
+
+@media (min-width:600px) and (max-width:768px) {
+    .img {
+        width: 87.5vw;
+        height: 50vw;
+    }
+}
+
+@media (min-width:768px) and (max-width:900px) {
+    .img {
+        width: 32vw;
+        height: 30vw;
+    }
+}

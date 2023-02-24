@@ -1,0 +1,98 @@
+.containerSlider {
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+    .container-slider {
+        margin: 100px 10px 0;
+    }
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity ease-in-out 0.4s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imgActive {
+    opacity: 1;
+}
+
+.btnSlide {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    position: absolute;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+
+.prev {
+    top: 50%;
+    left: 20px;
+    transition-duration: 0.4s;
+}
+
+.next {
+    top: 50%;
+    right: 20px;
+    transition-duration: 0.4s;
+}
+
+.next:hover {
+    color: white;
+    background-color: black;
+}
+
+.prev:hover {
+    color: white;
+    background-color: black;
+}
+
+.containerDots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid #f1f1f1;
+    margin: 0 5px;
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: rgb(32, 32, 32);
+}
+
+.next:active {
+    transform: translateX(4px);
+}
+
+.prev:active {
+    transform: translateX(-4px);
+}

@@ -1,0 +1,52 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 15px 15px 15px 40px;
+    margin: 0;
+}
+
+.main h2 {
+    margin: 0;
+}
+
+.main p {
+    margin-bottom: 10px;
+}
+
+.loc {
+    color: rgb(106, 105, 105);
+}
+
+.btn {
+    background-color: rgb(59, 73, 203);
+    width: fit-content;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
+    box-shadow: 3px 3px 8px black;
+    transition-duration: 0.4s;
+}
+
+.btn:hover {
+    background-color: rgb(39, 50, 152);
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .main {
+        padding: 15px 10px 15px 10px;
+    }
+}
+
+@media (min-width:768px) and (max-width:900px) {
+    .main p {
+        font-size: 1.7vw;
+    }
+
+    .btn {
+        font-size: 1.7vw;
+    }
+}

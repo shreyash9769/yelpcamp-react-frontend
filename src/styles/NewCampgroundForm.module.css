@@ -1,0 +1,102 @@
+.main {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main p {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.inputs label:after {
+    content: "*";
+    color: red;
+}
+
+.inputs input {
+    width: 35rem;
+    margin-bottom: 10px;
+    height: 2rem;
+    font-size: 15px;
+}
+
+.inputs textarea {
+    height: 4rem;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.form {
+    margin-top: 30px;
+}
+
+.submit {
+    width: 49%;
+    background-color: rgb(22, 152, 22);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 5px 8px 5px 0;
+    box-shadow: 3px 3px 8px black;
+    transition-duration: 0.4s;
+}
+
+.cancel {
+    width: 49%;
+    background-color: rgb(109, 115, 109);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 5px 0 5px 0;
+    box-shadow: 3px 3px 8px black;
+    transition-duration: 0.4s;
+}
+
+.submit:hover {
+    background-color: rgb(18, 130, 18);
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: rgb(89, 91, 89);
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .inputs input {
+        width: 80vw;
+    }
+
+    .inputs textarea {
+        width: 80vw;
+    }
+
+    .submit {
+        width: 39vw;
+    }
+
+    .cancel {
+        width: 39vw;
+    }
+
+    .main p {
+        font-size: 2rem;
+    }
+}

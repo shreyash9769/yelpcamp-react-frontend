@@ -1,0 +1,31 @@
+.okay {
+    background-color: rgb(59, 73, 203);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 0 0 10px 0;
+    box-shadow: 2px 2px 6px black;
+    transition-duration: 0.4s;
+}
+
+.okay:hover {
+    background-color: rgb(39, 50, 152);
+    cursor: pointer;
+}
+
+.warningDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.warningDiv p {
+    margin: 0;
+}
+
+.warning {
+    font-size: 70px;
+    color: rgb(255, 255, 0);
+}
