@@ -4,8 +4,8 @@ import classes from "../../styles/CampItemSkeleton.module.css"
 
 import classesItem from "../../styles/CampItem.module.css"
 const CampItemSkeleton = () => {
-    return Array(5).fill(0).map(() => {
-        return <div className={classesItem.main}>
+    return Array(5).fill(0).map((_, index) => {
+        return <div key={index} className={classesItem.main}>
             <div>
                 <Skeleton className={classes.img}></Skeleton>
             </div>

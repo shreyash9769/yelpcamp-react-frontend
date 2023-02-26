@@ -37,7 +37,7 @@ const ImageSlider = (props) => {
 
     return <div className={classes.containerSlider}>
         {props.images ? props.images?.map((img, index) => {
-            return <div className={slideIndex === index ? classes.slide + " " + classes.imgActive : classes.slide}>
+            return <div key={index} className={slideIndex === index ? classes.slide + " " + classes.imgActive : classes.slide}>
                 <img src={props.images[index].url} alt="campgroundImages"></img>
             </div>
         }) : <Skeleton className={classes.containerSlider}></Skeleton>}
@@ -45,7 +45,7 @@ const ImageSlider = (props) => {
         {props.images && props.images.length > 1 && <ButtonSlider moveSlide={nextSlide} direction="next"></ButtonSlider>}
         {props.images && props.images.length > 1 && <div className={classes.containerDots}>
             {Array.from({ length: props.images.length }).map((item, index) => (
-                <div
+                <div key={index}
                     onClick={() => moveDot(index)}
                     className={slideIndex === index ? classes.dot + " " + classes.active : classes.dot}
                 ></div>

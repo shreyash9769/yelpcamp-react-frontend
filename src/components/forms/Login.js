@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 import { AuthContext } from "../camp/auth-context"
 import ErrorModal from "../ui/ErrorModal"
@@ -9,6 +9,7 @@ import classes from "../../styles/Login.module.css"
 const Login = () => {
     const auth = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
     const [enteredEmail, setEnteredEmail] = useState();
     const [enteredPassword, setEnteredPassword] = useState();
     const [isLoading, setIsLoading] = useState()
@@ -45,7 +46,11 @@ const Login = () => {
             }
             auth.login(responseData.user._id, responseData.token)
             setIsLoading(false)
-            navigate(-1)
+            if (location.state?.pushed) {
+                navigate("/")
+            }
+            else
+                navigate(-1)
         }
         catch (err) {
             setIsLoading(false)

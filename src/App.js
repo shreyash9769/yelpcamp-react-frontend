@@ -77,7 +77,7 @@ function App() {
       <Route path='/signup' element={<Signup></Signup>}></Route>
       <Route
         path="*"
-        element={<Navigate to="/login" replace />}
+        element={<Navigate to="/login" replace state={{ pushed: true }} />}
       />
 
     </Routes>
