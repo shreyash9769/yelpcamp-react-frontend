@@ -5,13 +5,13 @@ import { AiFillWarning } from "react-icons/ai"
 import { AuthContext } from "./auth-context";
 import ReviewList from "./ReviewList";
 import StreetMap from "../map/StreetMap";
-import LoadingSpinner from "../ui/LoadingSpinner"
 import ImageSlider from "./ImageSlider";
 import Modal from "../ui/Modal";
 import ErrorModal from "../ui/ErrorModal";
 
 import classes from "../../styles/SingleCampground.module.css"
-
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const SingleCampground = () => {
     const auth = useContext(AuthContext)
@@ -89,7 +89,6 @@ const SingleCampground = () => {
     }
 
     return <div className={classes.main}>
-        {isLoading && <LoadingSpinner asOverlay></LoadingSpinner>}
         <ErrorModal error={error} onClear={clearError}></ErrorModal>
         <Modal show={showModal} onCancel={cancelDeleteHandler} header={<div className={classes.warningDiv}><AiFillWarning className={classes.warning}></AiFillWarning><p>Are you sure?</p></div>}
             footer={
@@ -100,23 +99,23 @@ const SingleCampground = () => {
         >
             <p>Do you want to delete {title} campground?</p>
         </Modal>
-        {!isLoading && <div className={classes.camp}>
+        <div className={classes.camp}>
             <ImageSlider images={images}></ImageSlider>
             <div>
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <p>Rs {price}/day</p>
-                <p>{location}</p>
-                <p>Submitted by {owner}</p>
+                <h2>{title || <Skeleton width={200} height={30}></Skeleton>}</h2>
+                <p>{description || <Skeleton count={5}></Skeleton>}</p>
+                <p>{price ? "Rs " + price + "/day" : <Skeleton width={70}></Skeleton>}</p>
+                <p>{location || <Skeleton width={100}></Skeleton>}</p>
+                <p>{owner ? "Submitted by " + owner : <Skeleton width={200}></Skeleton>}</p>
             </div>
             <div>
                 {!isLoading && campgrounds.owner._id === auth.userId && <Link to={`/campground/${campId}/edit`}><button className={classes.edit}>Edit Campground</button></Link>}
                 {!isLoading && campgrounds.owner._id === auth.userId && <button className={classes.delete} onClick={showDeleteWarningHandler}>Delete Campground</button>}
             </div>
-        </div>}
+        </div>
         <div className={classes.map}>
             <div>
-                {!isLoading && <StreetMap campground={campgrounds}></StreetMap>}
+                <StreetMap campground={campgrounds}></StreetMap>
             </div>
             <div>
                 <ReviewList campId={campId} reviews={reviews}></ReviewList>

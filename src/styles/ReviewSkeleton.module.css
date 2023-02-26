@@ -1,0 +1,14 @@
+.main {
+    border: 1px solid gray;
+    margin-bottom: 15px;
+}
+
+.name {
+    background-color: rgb(4, 4, 22);
+    text-align: center;
+    padding: 8px;
+}
+
+.p {
+    padding: 10px;
+}

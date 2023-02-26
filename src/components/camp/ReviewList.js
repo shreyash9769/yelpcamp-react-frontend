@@ -8,6 +8,7 @@ import Review from "./Review"
 import ErrorModal from "../ui/ErrorModal";
 
 import classes from "../../styles/ReviewList.module.css"
+import ReviewSkeleton from "./ReviewSkeleton";
 
 const ReviewList = (props) => {
     const [isButtonClicked, setIsButtonClicked] = useState()
@@ -97,8 +98,8 @@ const ReviewList = (props) => {
                     </form>
                 </div>}
             </CSSTransition>
-            {props.reviews && props.reviews.length !== 0 && <h2 className={classes.p}>Reviews</h2>}
-            {props.reviews && props.reviews.length !== 0 && props.reviews.map((review) => <Review key={review._id} userId={review.author._id} name={review.author.name} body={review.body} rating={review.rating} campId={props.campId} reviewId={review._id}></Review>)}
+            <h2 className={classes.p}>Reviews</h2>
+            {props.reviews ? (props.reviews.length !== 0 ? props.reviews.map((review) => <Review key={review._id} userId={review.author._id} name={review.author.name} body={review.body} rating={review.rating} campId={props.campId} reviewId={review._id}></Review>) : <Review key="" userId="" name="No Reviews Found" body="There aren't any reviews yet. Leave one." rating="" campId="" reviewId=""></Review>) : <ReviewSkeleton></ReviewSkeleton>}
 
         </div>
         }
