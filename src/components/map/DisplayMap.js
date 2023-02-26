@@ -8,6 +8,8 @@ import Map, {
     ScaleControl,
     GeolocateControl
 } from 'react-map-gl';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import Pin from './Pin';
 
 import classes from "../../styles/DisplayMap.module.css"
@@ -39,48 +41,49 @@ const DisplayMap = (props) => {
                     <Pin />
                 </Marker>
             )),
-        []
+        [props.cityData]
     );
 
 
     return <div >
-        <Map
-            initialViewState={{
-                latitude: 19.0760,
-                longitude: 72.8777,
-                zoom: 2.5,
-                bearing: 0,
-                pitch: 0
-            }}
-            // style={{ width: 1150, height: 500 }}
-            style={{ width: "80vw", height: "70vh" }}
-            mapStyle="mapbox://styles/mapbox/dark-v9"
-            mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        >
-            <div className={classes.main}>
-                <GeolocateControl position="top-left" />
-                <FullscreenControl position="top-left" />
-                <NavigationControl position="top-left" />
-                <ScaleControl />
-            </div>
+        {props.cityData ?
+            <Map
+                initialViewState={{
+                    latitude: 19.0760,
+                    longitude: 72.8777,
+                    zoom: 2.5,
+                    bearing: 0,
+                    pitch: 0
+                }}
+                // style={{ width: 1150, height: 500 }}
+                style={{ width: "80vw", height: "60vh" }}
+                mapStyle="mapbox://styles/mapbox/dark-v9"
+                mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            >
+                <div className={classes.main}>
+                    <GeolocateControl position="top-left" />
+                    <FullscreenControl position="top-left" />
+                    <NavigationControl position="top-left" />
+                    <ScaleControl />
+                </div>
 
-            {pins}
+                {pins}
 
-            {popupInfo && (
-                <Popup
-                    anchor="top"
-                    longitude={Number(popupInfo.geometry.coordinates[0])}
-                    latitude={Number(popupInfo.geometry.coordinates[1])}
-                    onClose={() => setPopupInfo(null)}
-                >
-                    <div>
-                        {popupInfo.location} |{' '}
+                {popupInfo && (
+                    <Popup
+                        anchor="top"
+                        longitude={Number(popupInfo.geometry.coordinates[0])}
+                        latitude={Number(popupInfo.geometry.coordinates[1])}
+                        onClose={() => setPopupInfo(null)}
+                    >
+                        <div>
+                            {popupInfo.location} |{' '}
 
-                    </div>
-                    <img width="100%" src={popupInfo.images[0].url} alt="campgroundInfo" />
-                </Popup>
-            )}
-        </Map>
+                        </div>
+                        <img width="100%" src={popupInfo.images[0].url} alt="campgroundInfo" />
+                    </Popup>
+                )}
+            </Map> : <Skeleton width={"80vw"} height={"60vh"} />}
     </div>
 }
 

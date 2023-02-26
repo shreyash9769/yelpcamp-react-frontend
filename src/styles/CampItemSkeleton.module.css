@@ -1,3 +1,15 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 15px 15px 15px 40px;
+    flex: 1;
+}
+
+.p {
+    margin: 15px 0;
+}
+
 .img {
     margin: 0;
     padding: 0;
@@ -15,6 +27,14 @@
     .img {
         width: 87.5vw;
         height: 50vw;
+    }
+}
+
+@media (max-width:768px) {
+    .info {
+        width: 90%;
+        padding: 15px 10px 15px 10px;
+        flex: 1;
     }
 }
 

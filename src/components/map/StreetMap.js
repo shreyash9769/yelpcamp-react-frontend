@@ -8,6 +8,8 @@ import Map, {
     ScaleControl,
     GeolocateControl
 } from 'react-map-gl';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import Pin from './Pin';
 
 
@@ -33,11 +35,11 @@ const StreetMap = (props) => {
                 <Pin />
             </Marker>
         ,
-        []
+        [props.campground]
     );
     return (
         <>
-            <Map
+            {props.campground ? <Map
                 initialViewState={{
                     longitude: props.campground.geometry.coordinates[0],
                     latitude: props.campground.geometry.coordinates[1],
@@ -66,7 +68,7 @@ const StreetMap = (props) => {
                         <img width="100%" src={popupInfo.images[0].url} alt="campgroundInfo" />
                     </Popup>
                 )}
-            </Map>
+            </Map> : <Skeleton width={"100%"} height={"40vh"}></Skeleton>}
         </>
     );
 }

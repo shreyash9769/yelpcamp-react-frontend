@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Route, Navigate, Routes } from "react-router-dom"
+import { SkeletonTheme } from 'react-loading-skeleton'
 
 import { AuthContext } from './components/camp/auth-context';
 import NewCampgroundForm from './components/forms/NewCampgroundForm';
@@ -85,7 +86,9 @@ function App() {
   return (
     <AuthContext.Provider value={{ userId, token, isLoggedIn: !!token, login, logout }}>
       <Navbar></Navbar>
-      {routes}
+      <SkeletonTheme baseColor="#e0dcdc" highlightColor="#c2c2c2">
+        {routes}
+      </SkeletonTheme>
     </AuthContext.Provider>
   );
 }
