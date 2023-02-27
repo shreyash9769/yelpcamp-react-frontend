@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-
+import { toast } from "react-toastify"
 import { AuthContext } from "../camp/auth-context"
 import ErrorModal from "../ui/ErrorModal"
 import LoadingSpinner from "../ui/LoadingSpinner"
@@ -46,6 +46,7 @@ const Login = () => {
             }
             auth.login(responseData.user._id, responseData.token)
             setIsLoading(false)
+            toast.success("Welcome back")
             if (location.state?.pushed) {
                 navigate("/")
             }
