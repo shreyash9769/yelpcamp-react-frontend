@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { CSSTransition } from 'react-transition-group';
+import { toast } from 'react-toastify';
 
 import { AuthContext } from "./auth-context"
 import LoadingSpinner from "../ui/LoadingSpinner"
@@ -39,6 +40,10 @@ const ReviewList = (props) => {
         setError(null)
     }
 
+    const notify = () => {
+        toast.info("Please login to leave a review")
+    }
+
     const submitHandler = async (e) => {
         setIsLoading(true)
         e.preventDefault()
@@ -70,7 +75,7 @@ const ReviewList = (props) => {
         <ErrorModal error={error} onClear={clearError}></ErrorModal>
         {isLoading && <LoadingSpinner asOverlay></LoadingSpinner>}
         {!isLoading && <div className={classes.main}>
-            {!auth.isLoggedIn && <Link to="/login"><button className={classes.leaveReview}>Leave a review</button></Link>}
+            {!auth.isLoggedIn && <Link to="/login"><button className={classes.leaveReview} onClick={notify}>Leave a review</button></Link>}
             {auth.isLoggedIn && <button className={classes.leaveReview} onClick={reviewButtonHandler}>Leave a review</button>}
             <CSSTransition
                 in={isButtonClicked}
@@ -100,7 +105,6 @@ const ReviewList = (props) => {
             </CSSTransition>
             <h2 className={classes.p}>Reviews</h2>
             {props.reviews ? (props.reviews.length !== 0 ? props.reviews.map((review) => <Review key={review._id} userId={review.author._id} name={review.author.name} body={review.body} rating={review.rating} campId={props.campId} reviewId={review._id}></Review>) : <Review key="" userId="" name="No Reviews Found" body="There aren't any reviews yet. Leave one." rating="" campId="" reviewId=""></Review>) : <ReviewSkeleton></ReviewSkeleton>}
-
         </div>
         }
     </>

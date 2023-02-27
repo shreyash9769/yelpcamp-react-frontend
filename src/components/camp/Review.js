@@ -1,6 +1,7 @@
 import { useState, useContext } from "react"
 import { BsStarFill } from "react-icons/bs"
 import { AiFillWarning } from "react-icons/ai"
+import { toast } from "react-toastify"
 
 import { AuthContext } from "./auth-context"
 import LoadingSpinner from "../ui/LoadingSpinner";
@@ -19,6 +20,7 @@ const Review = (props) => {
 
     const cancelDeleteHandler = () => {
         setShowModal(false)
+
     }
 
     const deleteHandler = async (e) => {
@@ -34,6 +36,7 @@ const Review = (props) => {
             })
             setIsLoading(false)
             window.location.reload()
+            toast.success("Review deleted successfully")
         } catch (err) {
 
         }

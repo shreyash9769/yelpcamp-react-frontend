@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { AiFillWarning } from "react-icons/ai"
+import { toast } from "react-toastify"
 
 import { AuthContext } from "./auth-context";
 import ReviewList from "./ReviewList";
@@ -70,6 +71,7 @@ const SingleCampground = () => {
                 }
             })
             setIsLoading(false)
+            toast.success("Campground deleted successfully")
             navigate("/campgrounds", { replace: true })
         } catch (err) {
 

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import ErrorModal from "../ui/ErrorModal"
 import LoadingSpinner from "../ui/LoadingSpinner"
 import { AuthContext } from "../camp/auth-context"
+import { toast } from "react-toastify"
 
 import classes from "../../styles/NewCampgroundForm.module.css"
 
@@ -69,6 +70,7 @@ const NewCampgroundForm = () => {
                 throw new Error(responseData.message)
             }
             setIsLoading(false)
+            toast.success("Campground added successfully")
             navigate("/campgrounds", { replace: true })
         }
         catch (err) {

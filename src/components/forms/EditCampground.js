@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 import { AuthContext } from "../camp/auth-context"
 import LoadingSpinner from "../ui/LoadingSpinner"
@@ -76,6 +77,7 @@ const EditCampground = () => {
                 throw new Error(responseData.message)
             }
             setIsLoading(false)
+            toast.success("Campground edited successfully")
             navigate(`/campground/${campId}`, { replace: true })
         }
         catch (err) {

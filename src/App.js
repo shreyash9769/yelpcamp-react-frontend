@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Route, Navigate, Routes } from "react-router-dom"
 import { SkeletonTheme } from 'react-loading-skeleton'
+import { ToastContainer } from 'react-toastify';
 
 import { AuthContext } from './components/camp/auth-context';
 import NewCampgroundForm from './components/forms/NewCampgroundForm';
@@ -13,6 +14,7 @@ import EditCampground from './components/forms/EditCampground';
 import Navbar from './components/camp/Navbar';
 
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -89,6 +91,7 @@ function App() {
       <SkeletonTheme baseColor="#e0dcdc" highlightColor="#c2c2c2">
         {routes}
       </SkeletonTheme>
+      <ToastContainer></ToastContainer>
     </AuthContext.Provider>
   );
 }

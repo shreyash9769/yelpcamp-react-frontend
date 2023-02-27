@@ -1,4 +1,5 @@
 import { useState, useContext } from "react"
+import { toast } from "react-toastify"
 
 import ErrorModal from "../ui/ErrorModal"
 import LoadingSpinner from "../ui/LoadingSpinner"
@@ -47,6 +48,7 @@ const Signup = () => {
                 throw new Error(responseData.message)
             }
             auth.login(responseData.user._id, responseData.token)
+            toast.success("Registered Successfully. Its time to explore our campgrounds")
             setIsLoading(false)
         }
         catch (err) {
